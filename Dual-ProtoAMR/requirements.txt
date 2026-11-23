@@ -1,0 +1,21 @@
+# Dual-ProtoAMR 依赖
+# Python >= 3.8
+#
+# CUDA 用户请先按 https://pytorch.org 的指引装对应 CUDA 版本的 torch，
+# 再执行 pip install -r requirements.txt（否则可能装上 CPU 版）。
+
+torch>=1.13.0
+torchvision>=0.14.0
+
+# ⚠️ 必须用 transformers 4.x：
+#    code/run.py 直接使用 get_image_features() 返回的 Tensor（v4 行为）；
+#    v5 返回 BaseModelOutputWithPooling 对象，会直接报错。
+#    （顶层的 core/run_image.py 有 v5 兼容兜底，但论文代码 code/ 没有，也不打算加。）
+transformers>=4.28.0,<5.0.0
+
+numpy>=1.21.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+matplotlib>=3.4.0
+Pillow>=9.0.0
+tqdm>=4.62.0

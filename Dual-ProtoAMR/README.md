@@ -13,7 +13,6 @@ Final setting used for the paper:
 | image branch | 4 views (constellation + 2/4/8-order spectrum) → CLIP ViT-B/32 → 2048-d |
 | signal branch | ResNet1D on raw IQ → 128-d |
 | projection heads | 64-d, L2-normalized |
-| training loss | `InfoNCE + 64 · CE` |
 | inference | class prototypes, `s = 0.5·s_iq + 0.5·s_img`, argmax |
 | split | 20 % labeled / 80 % unlabeled, stratified by (class, SNR) |
 | epochs / seed | 50 / 42 |
@@ -153,5 +152,3 @@ and writes into its own `tune_*/` folder.
   varies slightly from sample to sample. This is the original behaviour and the
   reported numbers were produced with it — leave it as is if you want to reproduce them.
 - `run.py` renders ~0.04 s per sample single-threaded (≈2.3 h for 220 k samples).
-
-MIT
